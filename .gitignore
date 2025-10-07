@@ -1,0 +1,17 @@
+# Entorno virtual
+venv/
+
+# Archivos de Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Archivos de Django
+db.sqlite3
+
+# Archivos del sistema
+.DS_Store
+*.log
+
+# Archivos de configuración local
+.env

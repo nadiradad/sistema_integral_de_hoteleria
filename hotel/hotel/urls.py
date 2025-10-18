@@ -17,8 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from apps.habitacion import views
+from apps.reserva import views as vista_reserva
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('listar_habitaciones/', views.listar_habitaciones, name='listar_habitaciones'),
+    path('listar_reservas/', vista_reserva.listar_reservas, name='listar_reservas')
 ]

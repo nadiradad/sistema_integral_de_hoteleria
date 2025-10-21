@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Inicio - Hotel{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/pagina_principal.css' %}">
+{% endblock %}
+
+{% block content %}
+<main class="container py-5">
+    <!-- Hero -->
+    <section class="hero text-center py-5">
+        <h1 class="display-4">Bienvenido a Hotel</h1>
+        <p class="lead">Tu confort, nuestra prioridad. Reserva tu estancia y disfruta de una experiencia inolvidable.</p>
+        <a href="{% url 'reservas:crear' %}" class="btn btn-primary btn-lg mt-3">Reservar ahora</a>
+    </section>
+
+    <!-- Características / tarjetas -->
+    <section class="features row mt-5">
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Habitaciones</h5>
+                    <p class="card-text">Habitaciones cómodas y modernas adaptadas a todas las necesidades.</p>
+                    <a href="{% url 'habitaciones:listado' %}" class="btn btn-outline-primary">Ver habitaciones</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Servicios</h5>
+                    <p class="card-text">Spa, restaurante, gimnasio y más para que tu estancia sea perfecta.</p>
+                    <a href="{% url 'servicios:lista' %}" class="btn btn-outline-primary">Ver servicios</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Eventos & Grupo</h5>
+                    <p class="card-text">Espacios para eventos, reuniones y celebraciones con atención personalizada.</p>
+                    <a href="{% url 'eventos:info' %}" class="btn btn-outline-primary">Más información</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Opiniones dinámicas -->
+    <section class="mt-5">
+        <h2>Opiniones de clientes</h2>
+        <div class="list-group mt-3">
+            {% for opinion in opiniones %}
+            <div class="list-group-item">
+                <strong>{{ opinion.usuario }}</strong> <small class="text-muted">— {{ opinion.fecha }}</small>
+                <p class="mb-0">{{ opinion.texto }}</p>
+            </div>
+            {% empty %}
+            <p>No hay opiniones disponibles todavía.</p>
+            {% endfor %}
+        </div>
+    </section>
+</main>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/pagina_principal.js' %}"></script>
+{% endblock %}

@@ -18,9 +18,13 @@ from django.contrib import admin
 from django.urls import path, include
 from apps.habitacion import views
 from apps.reserva import views as vista_reserva
+from apps.pagina_principal import views as vista_principal
+from apps.servicio_adicional import views as vista_servicio
 
 urlpatterns = [
+    path('', vista_principal.vista_principal, name='vista_principal'),
     path('admin/', admin.site.urls),
     path('listar_habitaciones/', views.listar_habitaciones, name='listar_habitaciones'),
-    path('listar_reservas/', vista_reserva.listar_reservas, name='listar_reservas')
+    path('listar_reservas/', vista_reserva.listar_reservas, name='listar_reservas'),
+    path('servicios/', vista_servicio.listado_servicios, name='listado_servicios'),
 ]

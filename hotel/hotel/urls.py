@@ -20,6 +20,7 @@ from apps.habitacion import views
 from apps.reserva import views as vista_reserva
 from apps.pagina_principal import views as vista_principal
 from apps.servicio_adicional import views as vista_servicio
+from apps.usuario.views import login_view, register_view, logout_view
 
 urlpatterns = [
     path('', vista_principal.vista_principal, name='vista_principal'),
@@ -27,4 +28,7 @@ urlpatterns = [
     path('listar_habitaciones/', views.listar_habitaciones, name='listar_habitaciones'),
     path('listar_reservas/', vista_reserva.listar_reservas, name='listar_reservas'),
     path('servicios/', vista_servicio.listado_servicios, name='listado_servicios'),
+    path('login/', login_view, name='login'),
+    path('register/', register_view, name='register'),
+    path('logout/', logout_view, name='logout'),
 ]

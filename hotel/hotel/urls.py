@@ -28,6 +28,7 @@ urlpatterns = [
     path('listar_habitaciones/', views.listar_habitaciones, name='listar_habitaciones'),
     path('listar_reservas/', vista_reserva.listar_reservas, name='listar_reservas'),
     path('servicios/', vista_servicio.listado_servicios, name='listado_servicios'),
+    
     path('login/', login_view, name='login'),
     path('register/', register_view, name='register'),
     path('logout/', logout_view, name='logout'),
